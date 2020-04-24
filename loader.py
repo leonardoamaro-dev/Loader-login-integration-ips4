@@ -37,7 +37,8 @@ password = str(input('Password >>> '))
 print('-' * 29)
 
 # REQUEST
-request = post("https://yourpath/loader/login.php", params={"login": "loginmode", "username": username, "password": password})
+user_agent = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/35.0.1916.47 Safari/537.36'
+request = post("https://yourpath/loader/login.php", data={"login": "loginmode", "username": username, "password": password}, headers={'User-Agent': user_agent})
 
 # VERIFICANDO SE LOGIN ESTÁ CORRETO
 if(request.text == "true"):
